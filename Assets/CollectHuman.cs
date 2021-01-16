@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CollectHuman : MonoBehaviour
+
 {
+    private AudioSource source;
     // Start is called before the first frame update
     void Start()
     {
-
+        source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -22,6 +24,7 @@ public class CollectHuman : MonoBehaviour
         if (collision.collider.tag == "Player")
         {
             Destroy(this.gameObject);
+            source.Play();
         }
     }
 }
